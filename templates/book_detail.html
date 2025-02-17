@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Book Detail</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/booklist.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>{{ book.title }}</h1>
+        </div>
+        <div class="content">
+            <p><strong>Author:</strong> {{ book.author }}</p>
+            <p><strong>Price:</strong> {{ book.price }} USD</p>
+            <p><strong>Category:</strong> {{ book.category.name }}</p>
+            <p><strong>Created At:</strong> {{ book.created_at }}</p>
+        </div>
+    </div>
+</body>
+
+</html>
