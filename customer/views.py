@@ -11,15 +11,13 @@ def register_user(request):
         try:
             data = json.loads(request.body)
 
-            # Extract user details
             first_name = data.get("first_name")
             last_name = data.get("last_name")
             username = data.get("username")
-            password = data.get("password")  # User's raw password
+            password = data.get("password")  
             email = data.get("email")
             phone_number = data.get("phone_number")
 
-            # Validate required fields
             if not all([first_name, last_name, username, password, email, phone_number]):
                 return JsonResponse({"error": "All fields are required."}, status=400)
 
@@ -29,15 +27,13 @@ def register_user(request):
             if Customer.objects.filter(email=email).exists():
                 return JsonResponse({"error": "Email already registered."}, status=400)
 
-            # Hash the password before storing it
             hashed_password = make_password(password)
 
-            # Create and save the new user
             user = Customer.objects.create(
                 first_name=first_name,
                 last_name=last_name,
                 username=username,
-                password=hashed_password,  # Store hashed password
+                password=hashed_password,  
                 email=email,
                 phone_number=phone_number
             )
@@ -73,8 +69,15 @@ def login_user(request):
 
     return JsonResponse({"error": "Only POST method allowed."}, status=405)
 
+def get_all_customers(request):
+    customers = Customer.objects.all().values("first_name", "last_name", "username", "email", "phone_number")
+    return JsonResponse(list(customers), safe=False)
+
 def register_page(request):
     return render(request, "register.html")
 
 def login_page(request):
     return render(request, "login.html")
+
+def customer_list_page(request):
+    return render(request, "customer_list.html")

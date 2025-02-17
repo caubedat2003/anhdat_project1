@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cart List</title>
+    {% load static %}
+    <link rel="stylesheet" href="/static/css/app.css">
+</head>
+
+<body>
+    <div class="container-border">
+        <div class="header">
+            <h1>Cart list</h1>
+        </div>
+        <div class="content">
+            <ul>
+                {% for cart in carts %}
+                <li>
+                    {{ cart.customer.username }} - {{ cart.product.title }} (x{{ cart.quantity }}) -
+                    {{cart.total_price}} USD
+                </li>
+                {% empty %}
+                <p>No items in cart.</p>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

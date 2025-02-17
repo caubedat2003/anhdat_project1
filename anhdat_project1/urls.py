@@ -16,7 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from customer.views import register_page, login_page
+from customer.views import register_page, login_page, customer_list_page
+from cart.views import cart_list_page
 from django.shortcuts import render
 
 def home_page(request):
@@ -29,4 +30,6 @@ urlpatterns = [
     path('register/', register_page, name='register_page'),
     path('login/', login_page, name='login_page'),
     path('home/', home_page, name="home_page"),
+    path('customer_list/', customer_list_page, name="customer_list_page"),
+    path('cart/', cart_list_page, name='cart_list_page'),
 ]

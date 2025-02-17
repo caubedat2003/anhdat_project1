@@ -28,3 +28,6 @@ document.getElementById("register-form").addEventListener("submit", async functi
         messageEl.textContent = data.error || "Registration failed!";
     }
 });
+
+
+
