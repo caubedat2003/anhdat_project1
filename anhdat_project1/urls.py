@@ -29,7 +29,7 @@ urlpatterns = [
     path('api/customer/', include('customer.urls')),
     path('register/', register_page, name='register_page'),
     path('login/', login_page, name='login_page'),
-    path('home/', home_page, name="home_page"),
+    path('', home_page, name="home_page"),
     path('customer_list/', customer_list_page, name="customer_list_page"),
     path('cart/', cart_list_page, name='cart_list_page'),
 ]

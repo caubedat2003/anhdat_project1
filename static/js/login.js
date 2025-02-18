@@ -23,7 +23,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
             messageElement.textContent = "Login successful!";
 
             setTimeout(() => {
-                window.location.href = "/home/";
+                window.location.href = "";
             }, 1500);
         } else {
             messageElement.style.color = "red";
