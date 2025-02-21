@@ -19,6 +19,8 @@ from django.urls import path, include
 from customer.views import register_page, login_page, customer_list_page
 from cart.views import cart_list_page
 from django.shortcuts import render
+from django.conf import settings
+from django.conf.urls.static import static
 
 def home_page(request):
     return render(request, "home.html")
@@ -32,4 +34,4 @@ urlpatterns = [
     path('', home_page, name="home_page"),
     path('customer_list/', customer_list_page, name="customer_list_page"),
     path('cart/', cart_list_page, name='cart_list_page'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

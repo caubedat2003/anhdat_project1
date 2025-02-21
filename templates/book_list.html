@@ -16,12 +16,23 @@
             <h1>Book list</h1>
         </div>
         <div class="content">
-            <ul>
+            <ul class="book-list">
                 {% for book in books %}
-                <li class="card-book mb-2">
-                    <a href="{% url 'book_detail' book.id %}" class="book-title">
-                        {{ book.title }} by {{ book.author }} - {{ book.price }} USD
-                    </a>
+                <li class="card-book">
+                    <div class="book-image">
+                        <img src="{% static 'book_images/' %}{{ book.title|slugify }}.jpg" alt="{{ book.title }}">
+                    </div>
+
+                    <div class="book-info">
+                        <a href="{% url 'book_detail' book.id %}" class="book-title">
+                            {{ book.title }}
+                        </a>
+                        <p class="book-author">by {{ book.author }}</p>
+                    </div>
+
+                    <div class="book-price">
+                        <span>{{ book.price }} USD</span>
+                    </div>
                 </li>
                 {% endfor %}
             </ul>

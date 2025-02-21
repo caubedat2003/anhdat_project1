@@ -11,15 +11,18 @@
 </head>
 
 <body>
-    <div class="container-border">
-        <div class="header">
-            <h1>{{ book.title }}</h1>
-        </div>
-        <div class="content">
-            <p><strong>Author:</strong> {{ book.author }}</p>
-            <p><strong>Price:</strong> {{ book.price }} USD</p>
-            <p><strong>Category:</strong> {{ book.category.name }}</p>
-            <p><strong>Created At:</strong> {{ book.created_at }}</p>
+    <div class="container-border-dt">
+        <div class="content container-detail">
+            <div class="book-img">
+                <img src="{% static 'book_images/' %}{{ book.title|slugify }}.jpg" alt="{{ book.title }}">
+            </div>
+            <div>
+                <h1>{{ book.title }}</h1>
+                <p><strong>Author:</strong> {{ book.author }}</p>
+                <p><strong>Price:</strong> {{ book.price }} USD</p>
+                <p><strong>Category:</strong> {{ book.category.name }}</p>
+                <p><strong>Created At:</strong> {{ book.created_at }}</p>
+            </div>
         </div>
     </div>
 </body>
