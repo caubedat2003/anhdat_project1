@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from mongoengine import connect
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,6 +32,11 @@ ALLOWED_HOSTS = []
 TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 STATIC_DIR = os.path.join(BASE_DIR, "static")
 
+connect(
+    db="ecommerce",
+    host="mongodb://localhost:27017/ecommerce"
+)
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,6 +51,11 @@ INSTALLED_APPS = [
     'cart',
     'rest_framework',
     'api.apps.ApiConfig',
+    'clothes',
+    'mobile',
+    'order',
+    'paying',
+    'shipping',
 ]
 
 MIDDLEWARE = [
@@ -85,7 +96,23 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    },
+    'mysql':{
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'e-commerce',
+        'USER': 'root',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    },
+    'postgres':{
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'e-commerce',
+        'USER': 'postgres',
+        'PASSWORD': '1',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    },
 }
 
 
@@ -134,3 +161,5 @@ STATICFILES_DIRS = [STATIC_DIR]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+DATABASE_ROUTERS = ['db_router.MultiDBRouter']

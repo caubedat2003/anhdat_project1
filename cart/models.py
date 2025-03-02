@@ -3,8 +3,8 @@ from customer.models import Customer
 from book.models import Book  
 
 class Cart(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name="cart_items")  
-    product = models.ForeignKey(Book, on_delete=models.CASCADE, related_name="cart_items")  
+    customer_id = models.UUIDField()
+    product_id = models.IntegerField(default=1)
     quantity = models.PositiveIntegerField(default=1) 
     total_price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)  
     added_at = models.DateTimeField(auto_now_add=True) 

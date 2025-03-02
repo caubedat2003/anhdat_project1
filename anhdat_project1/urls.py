@@ -27,7 +27,7 @@ def home_page(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("book/", include("book.urls")),
+    # path("book/", include("book.urls")),
     path('api/customer/', include('customer.urls')),
     path('register/', register_page, name='register_page'),
     path('login/', login_page, name='login_page'),

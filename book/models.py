@@ -1,23 +1,10 @@
 from django.db import models
-
-class Category(models.Model):
-    name = models.CharField(max_length=255, unique=True)
-    description = models.TextField(blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.name
-    
-class Book(models.Model):
-    title = models.CharField(max_length=255)
-    author = models.CharField(max_length=255)
-    description = models.TextField(blank=True, null=True)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    stock = models.PositiveIntegerField(default=0)
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    image = models.ImageField(upload_to="book_images/", null=True, blank=True)
+from mongoengine import Document, StringField, DecimalField, IntField
+from product.models import Product
+class Book(Product):
+    author = StringField(max_length=255, required=True)
+    category = StringField()
+    image = StringField()
 
     def is_in_stock(self):
         return self.stock > 0
@@ -35,4 +22,4 @@ class Book(models.Model):
     def __str__(self):
         return f"{self.title} by {self.author}"
     
-    
+#book = Book.objects.create(title = "So Do", author = "Vu Trong Phung", description = "interesting story", price = 10, stock = 200, category = "Novel")

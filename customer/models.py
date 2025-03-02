@@ -16,7 +16,9 @@ class Customer(models.Model):
 
     def __str__(self):
         return self.get_full_name()
-    
-
-
-    
+class Address(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    house_number = models.CharField(max_length=10)
+    street = models.CharField(max_length=255)
+    district = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
