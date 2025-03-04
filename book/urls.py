@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import book_list, book_detail
+from .views import BookListCreateAPIView, BookDetailAPIView, BookSearchAPIView
 
 urlpatterns = [
-    path("books/", book_list, name="book_list"),  # Show all books
-    path("books/<int:book_id>/", book_detail, name="book_detail"),  # Show single book
+    path('books/search/', BookSearchAPIView.as_view(), name='book-search'),
+    path('books/', BookListCreateAPIView.as_view(), name='book-list-create'),
+    path('books/<str:book_id>/', BookDetailAPIView.as_view(), name='book-detail'),
 ]
-

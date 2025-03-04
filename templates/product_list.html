@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Product</title>
+    {% load static %}
+    <link rel="stylesheet" href="/static/css/app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&display=swap" rel="stylesheet">
+    <script src="/static/js/productService.js"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-left">QuickBuy</div>
+        <div class="navbar-right" id="user-name">
+            {% if request.session.username %}
+            <span id="username-display">{{ request.session.username }}</span>
+            <a href="{% url 'logout_user' %}">Logout</a>
+            {% else %}
+            <a href="{% url 'login_page' %}">Login</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="container-border">
+        <div class="header">
+            <h1>Product list</h1>
+        </div>
+        <div class="content">
+            <h2>Book</h2>
+            <button class="nav-btn nav-left" onclick="scrollLeft('books-section')">&#10094;</button>
+            <div id="books-section" class="product-container"></div>
+            <button class="nav-btn nav-right" onclick="scrollRight('books-section')">&#10095;</button>
+
+            <h2>Mobile</h2>
+            <button class="nav-btn nav-left" onclick="scrollLeft('mobiles-section')">&#10094;</button>
+            <div id="mobiles-section" class="product-container"></div>
+            <button class="nav-btn nav-right" onclick="scrollRight('mobiles-section')">&#10095;</button>
+
+            <h2>Clothes</h2>
+            <button class="nav-btn nav-left" onclick="scrollLeft('clothes-section')">&#10094;</button>
+            <div id="clothes-section" class="product-container"></div>
+            <button class="nav-btn nav-right" onclick="scrollRight('clothes-section')">&#10095;</button>
+
+            <h2>Shoes</h2>
+            <button class="nav-btn nav-left" onclick="scrollLeft('shoes-section')">&#10094;</button>
+            <div id="shoes-section" class="product-container"></div>
+            <button class="nav-btn nav-right" onclick="scrollRight('shoes-section')">&#10095;</button>
+        </div>
+    </div>
+</body>
+
+</html>

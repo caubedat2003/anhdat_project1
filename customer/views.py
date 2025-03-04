@@ -68,7 +68,10 @@ def login_user(request):
             if not check_password(password, user.password):
                 return JsonResponse({"error": "Invalid username or password."}, status=400)
 
-            return JsonResponse({"message": "Login successful!", "user_id": user.id}, status=200)
+            request.session['user_id'] = user.id
+            request.session['username'] = user.username
+
+            return JsonResponse({"message": "Login successful!", "user_id": user.id, "username": user.username}, status=200)
 
         except json.JSONDecodeError:
             return JsonResponse({"error": "Invalid JSON data."}, status=400)
@@ -78,6 +81,10 @@ def login_user(request):
 def get_all_customers(request):
     customers = Customer.objects.all().values("first_name", "last_name", "username", "email", "phone_number")
     return JsonResponse(list(customers), safe=False)
+
+def logout_user(request):
+    request.session.flush()  # Clears all session data
+    return JsonResponse({"message": "Logged out successfully."})
 
 class CustomerListCreateView(APIView):
     def get(self, request):
