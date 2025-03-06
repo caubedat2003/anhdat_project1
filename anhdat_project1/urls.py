@@ -36,6 +36,6 @@ urlpatterns = [
     path("api/", include("mobile.urls")),
     path("api/", include("clothes.urls")),
     path("api/", include("shoes.urls")),
-    path("api/", include("cart.urls")),
+    path("", include("cart.urls")),
     path("products/", product_list, name="product_list"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
