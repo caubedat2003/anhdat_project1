@@ -246,3 +246,12 @@ ul {
     font-size: 1em;
     margin-right: 4rem;
 }
+
+.logout-btn {
+    color: white;
+    background-color: firebrick;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 1rem;
+    padding: 2px;
+}

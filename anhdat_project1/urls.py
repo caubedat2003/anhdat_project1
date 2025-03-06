@@ -17,7 +17,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from customer.views import register_page, login_page, customer_list_page
-from cart.views import cart_list_page
 from product.views import product_list
 from django.shortcuts import render
 from django.conf import settings
@@ -33,10 +32,10 @@ urlpatterns = [
     path('login/', login_page, name='login_page'),
     path('', home_page, name="home_page"),
     path('customer_list/', customer_list_page, name="customer_list_page"),
-    path('cart/', cart_list_page, name='cart_list_page'),
     path("api/", include("book.urls")),
     path("api/", include("mobile.urls")),
     path("api/", include("clothes.urls")),
     path("api/", include("shoes.urls")),
+    path("api/", include("cart.urls")),
     path("products/", product_list, name="product_list"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
