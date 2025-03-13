@@ -3,13 +3,14 @@ import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
-from .models import Customer
+from .models import Customer, Address
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
 from django.shortcuts import get_object_or_404
-from .serializers import CustomerSerializer
+from .serializers import CustomerSerializer , AddressSerializer
+from rest_framework.generics import RetrieveAPIView
 
 @csrf_exempt
 def register_user(request):
@@ -127,6 +128,13 @@ class CustomerSearchView(APIView):
             serializer = CustomerSerializer(customers, many=True)
             return Response(serializer.data)
         return Response({"error": "No search query provided"}, status=status.HTTP_400_BAD_REQUEST)
+
+class CustomerAddressView(RetrieveAPIView):
+    serializer_class = AddressSerializer
+
+    def get_object(self):
+        customer_id = self.kwargs['customer_id']
+        return get_object_or_404(Address, customer_id=customer_id)
 
 def register_page(request):
     return render(request, "register.html")

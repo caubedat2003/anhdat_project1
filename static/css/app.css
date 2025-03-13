@@ -89,6 +89,14 @@ ul {
     margin-bottom: 2rem;
 }
 
+.ml-1 {
+    margin-left: 1rem;
+}
+
+.ml-2 {
+    margin-left: 2rem;
+}
+
 .book-title {
     font-weight: bold;
     text-decoration: none;
@@ -331,4 +339,70 @@ ul {
     border-radius: 10px;
     cursor: pointer;
     margin-top: 20px;
+}
+
+.ship-container {
+    display: flex;
+    max-width: 80%;
+    margin: auto;
+    gap: 50px;
+    margin-top: 20px;
+}
+
+.left-section,
+.right-section {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ship-info {
+    display: flex;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.ship-item {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    gap: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ship-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+.ship-title {
+    font-size: 16px;
+    font-weight: bold;
+    flex-grow: 1;
+}
+
+.ship-price {
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+}
+
+.shipping-form {
+    margin-top: 20px;
+}
+
+.submit-button {
+    padding: 10px;
+    background: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }

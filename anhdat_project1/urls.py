@@ -37,5 +37,7 @@ urlpatterns = [
     path("api/", include("clothes.urls")),
     path("api/", include("shoes.urls")),
     path("", include("cart.urls")),
+    path("", include("order.urls")),
+    path("", include("shipping.urls")),
     path("products/", product_list, name="product_list"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

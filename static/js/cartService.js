@@ -49,12 +49,15 @@ function displayCartItems(cartItems) {
     totalPriceElement.innerHTML = `<h3>Total Price: $${totalPrice.toFixed(2)}</h3>`;
     cartContainer.appendChild(totalPriceElement);
 
-    // Proceed to Paying Button
     const proceedButton = document.createElement("button");
-    proceedButton.classList.add("proceed-to-paying");
-    proceedButton.textContent = "Proceed to Paying";
+    proceedButton.classList.add("proceed-to-shipping");
+    proceedButton.textContent = "Proceed to Shipping";
     proceedButton.addEventListener("click", function () {
-        alert("Proceeding to payment...");
+        const orderDate = new Date().toISOString().split("T")[0]; // Get today's date
+        localStorage.setItem("orderDate", orderDate);
+        localStorage.setItem("totalPrice", totalPrice.toFixed(2));
+
+        window.location.href = "http://127.0.0.1:8000/shipping/";
     });
 
     cartContainer.appendChild(proceedButton);

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Shipping</title>
+    <link rel="stylesheet" href="/static/css/app.css">
+    <script src="/static/js/shippingService.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const storedUsername = localStorage.getItem("username");
+            const storedUserId = localStorage.getItem("user_id");
+
+            if (storedUsername && storedUserId) {
+                document.getElementById("username-display").textContent = storedUsername;
+                document.getElementById("username-display").setAttribute("data-customer-id", storedUserId);
+                document.getElementById("logout-link").style.display = "inline";
+                document.getElementById("login-link").style.display = "none";
+            } else {
+                document.getElementById("logout-link").style.display = "none";
+                document.getElementById("login-link").style.display = "inline";
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-left">QuickBuy</div>
+        <div class="navbar-right">
+            <span id="username-display" data-customer-id=""></span>
+            <a class="logout-btn" id="logout-link" href="{% url 'logout_user' %}" style="display: none;">Logout</a>
+            <a id="login-link" href="{% url 'login_page' %}">Login</a>
+        </div>
+    </div>
+
+    <div class="ship-container">
+        <div class="left-section">
+            <h2>Order Details</h2>
+            <p class="ship-info"><strong>Order Date:</strong> <span class="ml-1" id="orderDate"></span></p>
+            <p class="ship-info"><strong>Total Price:</strong> <span class="ml-1" id="totalPrice"></span></p>
+
+            <h3>Items in Order</h3>
+            <div id="orderItems"></div>
+        </div>
+
+        <div class="right-section">
+            <h2>Customer & Shipping Information</h2>
+            <p class="ship-info"><strong>Fullname:</strong> <span class="ml-1" id="customerName"></span></p>
+            <p class="ship-info"><strong>Phone number:</strong> <span class="ml-1" id="customerPhone"></span></p>
+            <p class="ship-info"><strong>Email:</strong> <span class="ml-1" id="customerEmail"></span></p>
+            <p class="ship-info"><strong>Address:</strong> <span class="ml-1" id="customerAddress"></span></p>
+
+            <h3>Select Shipping Method</h3>
+            <form id="shippingForm" class="shipping-form">
+                <label for="shippingMethod">Shipping Method:</label>
+                <select id="shippingMethod" required>
+                    <option value="giaohangtietkiem">Giao hàng tiết kiệm</option>
+                    <option value="giaohangnhanh">Giao hàng nhanh</option>
+                    <option value="j&texpress">J&T Express</option>
+                    <option value="ninjavan">Ninja Van</option>
+                    <option value="viettlepost">Viettle Post</option>
+                </select>
+                <button type="submit" class="submit-button">Proceed to Payment</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+
+</html>
