@@ -22,3 +22,11 @@ class SelectShippingView(APIView):
         )
 
         return Response(ShippingSerializer(shipping).data, status=status.HTTP_201_CREATED)
+
+class GetShippingView(APIView):
+    def get(self, request, order_id):
+        try:
+            shipping = Shipping.objects.get(order_id=order_id)
+            return Response(ShippingSerializer(shipping).data, status=status.HTTP_200_OK)
+        except Shipping.DoesNotExist:
+            return Response({"error": "Shipping not found"}, status=status.HTTP_404_NOT_FOUND)

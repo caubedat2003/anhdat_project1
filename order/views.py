@@ -9,7 +9,7 @@ from paying.models import Paying
 from product.models import Product
 from bson import ObjectId
 from django.db import transaction
-from .serializers import OrderSerializer
+from .serializers import OrderSerializer, OrderItemSerializer
 
 class CreateOrderView(APIView):
     def post(self, request):
@@ -87,3 +87,11 @@ class OrderDetailView(APIView):
             return Response(OrderSerializer(order).data, status=status.HTTP_200_OK)
         except Order.DoesNotExist:
             return Response({"error": "Order not found"}, status=status.HTTP_404_NOT_FOUND)
+        
+class OrderItemView(APIView):
+    def get(self, request, order_id):
+        try:
+            order_items = OrderItem.objects.filter(order_id=order_id)
+            return Response(OrderItemSerializer(order_items, many=True).data, status=status.HTTP_200_OK)
+        except OrderItem.DoesNotExist:
+            return Response({"error": "Order items not found"}, status=status.HTTP_404_NOT_FOUND)

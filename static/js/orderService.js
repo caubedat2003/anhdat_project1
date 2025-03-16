@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         const data = await response.json();
         if (response.ok) {
+            localStorage.setItem("order_id", data.id);
             alert("Order placed successfully! Order ID: " + data.id);
 
             // Clear cart & local storage after successful order

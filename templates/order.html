@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/static/css/app.css">
     <script src="/static/js/orderService.js"></script>
+    <script src="/static/js/orderDetail.js"></script>
     <title>Order Success</title>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -23,6 +24,7 @@
             }
         });
     </script>
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 </head>
 
 <body>
@@ -36,6 +38,33 @@
     </div>
 
     <h1>Order success</h1>
+
+    <div class="ship-container">
+        <div class="left-section">
+            <h2>Order Items</h2>
+            <div id="orderItems"></div>
+        </div>
+
+        <div class="right-section">
+            <h2>Customer Information</h2>
+            <p class="ship-info"><strong>Fullname:</strong> <span class="ml-1" id="customerName"></span></p>
+            <p class="ship-info"><strong>Phone number:</strong> <span class="ml-1" id="customerPhone"></span></p>
+            <p class="ship-info"><strong>Email:</strong> <span class="ml-1" id="customerEmail"></span></p>
+            <p class="ship-info"><strong>Address:</strong> <span class="ml-1" id="customerAddress"></span></p>
+            <p class="ship-info"><strong>Order Date:</strong> <span class="ml-1" id="orderDate"></span></p>
+            <p class="ship-info"><strong>Total Price:</strong> <span class="ml-1" id="totalPrice"></span></p>
+            <p class="ship-info"><strong>Shipping method:</strong> <span class="ml-1" id="shipMethod"></span></p>
+
+            <div class="order-success">
+                <h3>Thank you for your order!</h3>
+                <p>Your order has been successfully placed. You will receive an email confirmation shortly.</p>
+                <dotlottie-player src="https://lottie.host/33a4a4be-6711-4bf5-bf94-7e594939ef4a/mroa2r6LP3.lottie"
+                    background="transparent" speed="1" style="width: 200px; height: 200px" loop
+                    autoplay></dotlottie-player>
+            </div>
+
+        </div>
+    </div>
 
 </body>
 

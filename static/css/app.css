@@ -414,3 +414,9 @@ ul {
     cursor: pointer;
     border-radius: 5px;
 }
+
+.order-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
