@@ -68,8 +68,15 @@ document.addEventListener("DOMContentLoaded", loadOrderDetails);
 
 
 // Submit Selected Shipping Method
-async function submitShipping(customerId, addressId, method) {
+async function submitShipping(customerId, method) {
     try {
+        const addressResponse = await fetch(`${API_BASE_URL}/customer/customers/${customerId}/address/`);
+        if (!addressResponse.ok) throw new Error("Failed to fetch customer address");
+        const address = await addressResponse.json();
+        const addressId = address.id;
+
+        localStorage.setItem("address_id", addressId);
+
         const response = await fetch(`${API_BASE_URL}/shipping/select/`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css"
+        href="https://www.paypalobjects.com/webstatic/en_US/developer/docs/css/cardfields.css" />
+    <link rel="stylesheet" href="/static/css/app.css">
+    <title>PayPal JS SDK Advanced Integration - Checkout Flow</title>
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=AXR91irBt4e7JOtcktUvQKscPFNJdAw_rPWNspfgrrHqTLQdtigxfGk9iTpExoiYYkVHjh97HWuD2pqx&buyer-country=US&currency=USD&components=buttons,card-fields&enable-funding=venmo"
+        data-sdk-integration-source="developer-studio"></script>
+    <script src="/static/js/payment.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const storedUsername = localStorage.getItem("username");
+            const storedUserId = localStorage.getItem("user_id");
+
+            if (storedUsername && storedUserId) {
+                document.getElementById("username-display").textContent = storedUsername;
+                document.getElementById("username-display").setAttribute("data-customer-id", storedUserId);
+                document.getElementById("logout-link").style.display = "inline";
+                document.getElementById("login-link").style.display = "none";
+            } else {
+                document.getElementById("logout-link").style.display = "none";
+                document.getElementById("login-link").style.display = "inline";
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-left">QuickBuy</div>
+        <div class="navbar-right">
+            <span id="username-display" data-customer-id=""></span>
+            <a class="logout-btn" id="logout-link" href="{% url 'logout_user' %}" style="display: none;">Logout</a>
+            <a id="login-link" href="{% url 'login_page' %}">Login</a>
+        </div>
+    </div>
+
+    <h1>Choose a method to pay</h1>
+    <div id="paypal-button-container" class="paypal-button-container mt-2"></div>
+
+</body>
+
+</html>
