@@ -28,3 +28,4 @@
 - access https://developer.paypal.com/dashboard/applications/sandbox to create new app (connect with your bussiness account)
 - take client id and replace it in script in payment.html (<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>)
 - access https://www.sandbox.paypal.com/ to see all transactions
+- detail instruction: https://www.youtube.com/watch?v=UX_F3maOWDo
