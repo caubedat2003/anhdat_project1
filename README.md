@@ -15,6 +15,7 @@
 - List Collections (Tables) use : show collections
 
 3. How to run the website
+- run python manage.py runserver
 - enter http://127.0.0.1:8000/login/ to login or http://127.0.0.1:8000/register/ to create account
 - after login, enter 127.0.0.1:8000/products/ and add products to cart
 - enter 127.0.0.1:8000/cart/ to view cart and adjust quantity of item
