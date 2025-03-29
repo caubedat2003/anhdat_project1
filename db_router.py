@@ -5,7 +5,7 @@ class MultiDBRouter:
             return 'mysql'  # MySQL
         elif model._meta.app_label in ['cart', 'order', 'shipping', 'paying']:
             return 'postgres'  # PostgreSQL
-        elif model._meta.app_label in ['book', 'mobile', 'clothes', 'shoes']:
+        elif model._meta.app_label in ['book', 'mobile', 'clothes', 'shoes', 'comment']:
             return 'mongo'  # MongoDB
         return None
 
@@ -19,6 +19,6 @@ class MultiDBRouter:
             return db == 'mysql'
         elif app_label in ['cart', 'order', 'shipping', 'paying']:
             return db == 'postgres'
-        elif app_label in ['book', 'mobile', 'clothes']:
+        elif app_label in ['book', 'mobile', 'clothes', 'shoes', 'comment']:
             return False
         return None

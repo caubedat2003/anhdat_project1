@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Book
 from .serializers import BookSerializer
+from django.shortcuts import render
 
 class BookListCreateAPIView(APIView):
     """ GET: List all books, POST: Create a new book """
@@ -59,3 +60,6 @@ class BookSearchAPIView(APIView):
             serializer = BookSerializer(books, many=True)
             return Response(serializer.data)
         return Response({"error": "No search query provided"}, status=status.HTTP_400_BAD_REQUEST)
+
+def book_detail_view(request):
+    return render(request, 'book_detail.html')

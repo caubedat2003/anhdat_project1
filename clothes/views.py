@@ -59,3 +59,4 @@ class ClothesSearchAPIView(APIView):
             serializer = ClothesSerializer(clothes, many=True)
             return Response(serializer.data)
         return Response({"error": "No search query provided"}, status=status.HTTP_400_BAD_REQUEST)
+    
