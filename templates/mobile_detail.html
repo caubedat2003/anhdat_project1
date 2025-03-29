@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mobile Detail</title>
+    {% load static %}
+    <link rel="stylesheet" href="/static/css/app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&display=swap" rel="stylesheet">
+    <script src="/static/js/mobileDetailsService.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const storedUsername = localStorage.getItem("username");
+            const storedUserId = localStorage.getItem("user_id");
+
+            if (storedUsername && storedUserId) {
+                document.getElementById("username-display").textContent = storedUsername;
+                document.getElementById("username-display").setAttribute("data-customer-id", storedUserId);
+                document.getElementById("logout-link").style.display = "inline";
+                document.getElementById("login-link").style.display = "none";
+            } else {
+                document.getElementById("logout-link").style.display = "none";
+                document.getElementById("login-link").style.display = "inline";
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-left">QuickBuy</div>
+        <div class="navbar-right" id="user-name">
+            <span id="username-display" data-customer-id=""></span>
+            <a class="logout-btn" id="logout-link" href="{% url 'logout_user' %}" style="display: none;">Logout</a>
+            <a id="login-link" href="{% url 'login_page' %}">Login</a>
+        </div>
+
+    </div>
+
+    <div class="container-border-dt">
+        <h2 id="mobile-title">Loading...</h2>
+        <div class="content container-detail">
+            <div class="book-img">
+                <img id="mobile-image" src="" alt="Book Image" class="image-container">
+            </div>
+            <div class="book-info">
+                <p><strong>Author:</strong> <span id="mobile-brand"></span></p>
+                <p><strong>Category:</strong> <span id="mobile-spec"></span></p>
+                <p><strong>Price:</strong> $<span id="mobile-price"></span></p>
+                <p><strong>Description:</strong> <span id="mobile-description"></span></p>
+                <button id="add-to-cart-btn" class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="comment-section">
+            <h3>Comments</h3>
+            <textarea id="comment-input" placeholder="Write a comment..."></textarea>
+            <button id="submit-comment">Submit</button>
+            <div id="comment-list"></div>
+        </div>
+    </div>
+</body>
+
+</html>

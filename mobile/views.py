@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Mobile
 from .serializers import MobileSerializer
+from django.shortcuts import render
 
 class MobileListCreateAPIView(APIView):
     """ GET: List all mobiles, POST: Create a new mobile """
@@ -59,3 +60,6 @@ class MobileSearchAPIView(APIView):
             serializer = MobileSerializer(mobiles, many=True)
             return Response(serializer.data)
         return Response({"error": "No search query provided"}, status=status.HTTP_400_BAD_REQUEST)
+    
+def mobile_detail_view(request):
+    return render(request, 'mobile_detail.html')

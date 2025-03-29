@@ -31,7 +31,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
             productCard.innerHTML = `
                 <img src="${staticImagePath}" alt="Product Image">
-                <h3>${product.title}</h3>
+                <h3>
+                    <a class="a-text" href="http://127.0.0.1:8000/${category}/details/?id=${product.id}">
+                    ${product.title}
+                </a>
+                </h3>
                 <p>Price: $${product.price}</p>
                 <button class="add-to-cart-btn" data-product-id="${product.id}">Add to Cart</button>
             `;

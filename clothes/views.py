@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Clothes
 from .serializers import ClothesSerializer
+from django.shortcuts import render
 
 class ClothesListCreateAPIView(APIView):
     """ GET: List all clothes, POST: Create new clothes """
@@ -59,4 +60,6 @@ class ClothesSearchAPIView(APIView):
             serializer = ClothesSerializer(clothes, many=True)
             return Response(serializer.data)
         return Response({"error": "No search query provided"}, status=status.HTTP_400_BAD_REQUEST)
-    
+
+def clothes_detail_view(request):
+    return render(request, 'clothes_detail.html')
