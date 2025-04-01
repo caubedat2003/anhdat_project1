@@ -10,9 +10,15 @@ from product.models import Product
 from bson import ObjectId
 from django.db import transaction
 from .serializers import OrderSerializer, OrderItemSerializer
+from rest_framework.permissions import AllowAny
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
+@method_decorator(csrf_exempt, name='dispatch')
 class CreateOrderView(APIView):
+    
     def post(self, request):
+        permission_classes = [AllowAny]
         customer_id = request.data.get("customer_id")
         order_date = request.data.get("order_date")
         total_price = request.data.get("total_price")

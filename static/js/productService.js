@@ -98,6 +98,57 @@ document.addEventListener("DOMContentLoaded", function () {
             .find(row => row.startsWith('csrftoken='))
             ?.split('=')[1];
     }
+
+    // Fetch recommended books
+    function fetchRecommendedBooks() {
+        fetch('/api/comments/recommend_books/')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Failed to fetch recommended books");
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Reverse the book list before displaying
+                const reversedBooks = data.reverse();
+                displayRecommendedBooks(reversedBooks);
+            })
+            .catch(error => console.error("Error fetching recommended books:", error));
+    }
+
+    // Display recommended books in the frontend
+    function displayRecommendedBooks(books) {
+        const container = document.querySelector("#rcm-books-section");
+        if (!container) return;
+        container.innerHTML = "";
+
+        books.forEach(book => {
+            const productCard = document.createElement("div");
+            productCard.classList.add("product-card");
+
+            // Construct static image URLs
+            const staticImagePath = `/static/images/${book.image}`;
+
+            productCard.innerHTML = `
+                <img src="${staticImagePath}" alt="Book Image">
+                <h3>
+                    <a class="a-text" href="http://127.0.0.1:8000/books/details/?id=${book.id}">
+                    ${book.title}
+                </a>
+                </h3>
+                <p>Price: $${book.price}</p>
+                <button class="add-to-cart-btn" data-product-id="${book.id}">Add to Cart</button>
+            `;
+
+            container.appendChild(productCard);
+        });
+
+        // Attach event listeners after rendering
+        attachAddToCartListeners();
+    }
+
+    // Call function on page load
+    fetchRecommendedBooks();
 });
 
 // Scroll functions

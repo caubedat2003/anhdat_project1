@@ -26,7 +26,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         // Now create the order with the fetched address_id
         const response = await fetch("http://127.0.0.1:8000/api/order/create/", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRFToken": getCSRFToken()  // Include CSRF token here
+            },
             body: JSON.stringify({
                 customer_id: customerId,
                 order_date: orderDate,
@@ -55,5 +58,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     } catch (error) {
         console.error("Error creating order:", error);
         alert("An error occurred while placing the order.");
+    }
+    function getCSRFToken() {
+        const cookieValue = document.cookie
+            .split("; ")
+            .find(row => row.startsWith("csrftoken="))
+            ?.split("=")[1];
+        return cookieValue;
     }
 });

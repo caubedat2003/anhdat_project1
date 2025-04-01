@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function loadComments(bookId) {
-        fetch(`http://127.0.0.1:8000/api/comments/${bookId}/`)  // Updated URL
+        fetch(`http://127.0.0.1:8000/api/comments/details/${bookId}/`)  // Updated URL
             .then(response => response.json())
             .then(comments => {
                 const commentsSection = document.getElementById("comment-list");
