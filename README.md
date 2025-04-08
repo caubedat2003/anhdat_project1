@@ -29,3 +29,8 @@
 - take client id and replace it in script in payment.html (<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>)
 - access https://www.sandbox.paypal.com/ to see all transactions
 - detail instruction: https://www.youtube.com/watch?v=UX_F3maOWDo
+
+5. DATA Folder
+- Create new folder in C:/DATA
+- Cut and paste all files in DATA folder into new folder
+- Delete DATA folder in project
