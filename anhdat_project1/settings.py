@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'paying',
     'shipping',
     'comment',
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -67,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = 'anhdat_project1.urls'
@@ -164,3 +166,10 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DATABASE_ROUTERS = ['db_router.MultiDBRouter']
+
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:8000",  # ✅ Your frontend URL
+]
+CSRF_TRUSTED_ORIGINS = [
+    "http://127.0.0.1:8000",
+]
