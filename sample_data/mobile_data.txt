@@ -1,0 +1,5 @@
+title,brand,spec,description,price,stock,image,_cls
+iPhone 16,Apple,A17 Pro,The latest Apple flagship with advanced AI,1099.99,80,iphone-16.jpg,Product.Mobile
+iPhone 11,Apple,A13 Bionic,A popular older model still in demand,499.99,150,iphone11.jpg,Product.Mobile
+Samsung Z Fold 5,Samsung,Snapdragon 8 Gen 2,Foldable phone with multitasking features,1799.00,40,zfold5.jpg,Product.Mobile
+Samsung Galaxy S25,Samsung,Exynos 2500,Latest generation with powerful AI camera,1299.00,60,galaxy-s25.jpg,Product.Mobile

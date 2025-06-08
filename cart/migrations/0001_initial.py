@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name='Cart',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('customer_id', models.UUIDField()),
+                ('customer_id', models.CharField()),
                 ('product_id', models.IntegerField(default=1)),
                 ('quantity', models.PositiveIntegerField(default=1)),
                 ('total_price', models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True)),

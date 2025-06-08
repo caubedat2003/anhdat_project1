@@ -17,8 +17,8 @@ class Migration(migrations.Migration):
             name='Shipping',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('customer_id', models.UUIDField()),
-                ('address_id', models.UUIDField()),
+                ('customer_id', models.CharField()),
+                ('address_id', models.CharField()),
                 ('method', models.CharField(choices=[('giaohangtietkiem', 'Giao hàng tiết kiệm'), ('giaohangnhanh', 'Giao hàng nhanh'), ('j&texpress', 'J&T Express'), ('ninjavan', 'Ninja Van'), ('viettlepost', 'Viettle Post')], default='giaohangtietkiem', max_length=50)),
                 ('order', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='order.order')),
             ],

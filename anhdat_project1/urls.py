@@ -25,6 +25,9 @@ from django.conf.urls.static import static
 def home_page(request):
     return render(request, "home.html")
 
+def address_page(request):
+    return render(request, "address.html")
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/customer/', include('customer.urls')),
@@ -42,4 +45,5 @@ urlpatterns = [
     path("", include("paying.urls")),
     path("", include("comment.urls")),
     path("products/", product_list, name="product_list"),
+    path('address/', address_page, name='address_page'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,11 @@
+title,author,description,price,stock,category,image,_cls
+Chí Phèo,Nam Cao,A tragic story of a poor man,5.50,120,Classic,chipheo.jpg,Product.Book
+Đất rừng phương Nam,Đoàn Giỏi,A story set in the southern forests of Vietnam,6.00,100,Adventure,dat-rung-phuong-nam.jpg,Product.Book
+Dế mèn phiêu lưu ký,Tô Hoài,A cricket's adventurous journey,4.75,150,Children,demenphieuluuki.jpg,Product.Book
+Tôi thấy hoa vàng trên cỏ xanh,Nguyễn Nhật Ánh,A nostalgic childhood story,7.20,90,Fiction,hoavangtrencoxanh.jpg,Product.Book
+Làm Đĩ,Vũ Trọng Phụng,A controversial classic about social norms,5.80,60,Classic,Lam-di.jpg,Product.Book
+Lá nằm trong lá,Nguyễn Nhật Ánh,Youth and friendship themes,6.20,70,Fiction,lanamtronglam.jpg,Product.Book
+Ngày xưa có 1 chuyện tình,Nguyễn Nhật Ánh,Love story with mystery and drama,6.50,85,Romance,ngayxuaco1chuyentinh.jpg,Product.Book
+Quân khu Nam Đồng,Bình Ca,Coming-of-age memoir of a boy,6.90,75,Biography,quankhunamdong.jpg,Product.Book
+Truyện Kiều,Nguyễn Du,A poetic epic masterpiece,8.00,50,Poetry,truyenkieu.jpg,Product.Book
+Số Đỏ, Vũ Trọng Phụng, A great story, 19.00, 300,Classic,so-do.jpg,Product.Book

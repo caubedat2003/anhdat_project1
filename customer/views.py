@@ -6,7 +6,7 @@ from django.shortcuts import render
 from .models import Customer, Address
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, viewsets
 from rest_framework.decorators import api_view
 from django.shortcuts import get_object_or_404
 from .serializers import CustomerSerializer , AddressSerializer
@@ -135,6 +135,10 @@ class CustomerAddressView(RetrieveAPIView):
     def get_object(self):
         customer_id = self.kwargs['customer_id']
         return get_object_or_404(Address, customer_id=customer_id)
+    
+class AddressViewSet(viewsets.ModelViewSet):
+    queryset = Address.objects.all()
+    serializer_class = AddressSerializer
 
 def register_page(request):
     return render(request, "register.html")

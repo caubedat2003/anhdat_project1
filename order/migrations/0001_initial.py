@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
             name='Order',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('customer_id', models.UUIDField()),
+                ('customer_id', models.CharField()),
                 ('order_date', models.DateTimeField(auto_now_add=True)),
                 ('total_price', models.DecimalField(decimal_places=2, max_digits=10)),
                 ('status', models.CharField(choices=[('pending', 'Pending'), ('delivering', 'Delivering'), ('finished', 'Finished'), ('canceled', 'Canceled')], default='pending', max_length=20)),

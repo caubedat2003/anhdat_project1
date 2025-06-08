@@ -1,0 +1,5 @@
+title,_cls,brand,size,description,price,stock,image
+Thượng Đình Pata,Product.Shoes,Thượng Đình,43,Local brand with durable design,45.00,60,thuongdinh.jpg
+Adidas Samba OG,Product.Shoes,Adidas,42,Classic Adidas Samba original shoes,79.99,100,adidas Samba OG.jpg
+Nike Dunk Low,Product.Shoes,Nike,41,Popular Nike Dunk Low sneakers,89.50,80,Giay-Nike-Dunk-Low.jpg
+Nike Air Max Touch 4,Product.Shoes,Nike,44,Comfortable Air Max Touch 4 sneakers,99.99,70,Nike Air Max Torch 4.jpg

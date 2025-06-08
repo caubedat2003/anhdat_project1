@@ -1,0 +1,5 @@
+title,_cls,brand,size,color,description,price,stock,image
+Áo trắng Candles,Product.Clothes,Candles,M,White,Simple white t-shirt from Candles,15.99,120,aotrangcandles.jpg
+Boo Varsity,Product.Clothes,Boo,L,Red,Stylish varsity jacket from Boo,45.50,75,boovarsity.jpg
+Jeans Candles,Product.Clothes,Candles,32,Blue,High-quality blue jeans,35.00,90,jeanscandles.jpg
+Boo Hoodie,Product.Clothes,Boo,XL,Tan,Comfortable tan hoodie for winter,39.99,60,hoodieboo.jpg
